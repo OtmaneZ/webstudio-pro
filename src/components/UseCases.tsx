@@ -21,6 +21,16 @@ export default function UseCases() {
       icon: '🚀',
       title: 'Startups & Créateurs',
       description: 'Lancez-vous rapidement, testez votre marché, itérez sans perdre de temps.'
+    },
+    {
+      icon: '🏥',
+      title: 'Professions libérales',
+      description: 'Médecins, avocats, architectes : un site professionnel qui inspire confiance et expertise.'
+    },
+    {
+      icon: '🎨',
+      title: 'Créatifs & Artistes',
+      description: 'Portfolios élégants, galeries immersives, boutiques d\'art pour mettre en valeur vos créations.'
     }
   ]
 
@@ -40,7 +50,7 @@ export default function UseCases() {
           </p>
         </div>
 
-        <div className="ws-grid-2">
+        <div className="ws-grid-3">
           {useCases.map((useCase, index) => (
             <div key={index} className="ws-card">
               <div className="ws-card-icon">
