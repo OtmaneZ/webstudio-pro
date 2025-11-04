@@ -71,13 +71,15 @@ export default function Home() {
     // Mettre à jour le background du body
     document.body.style.background = theme.background
     
-    // Mettre à jour les bordures pour le thème clair
+    // Mettre à jour les bordures et header pour le thème clair
     if (currentTheme === 'light') {
       document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.3)')
       document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(226, 232, 240, 0.9)')
+      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(248, 250, 252, 0.95)')
     } else {
       document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.1)')
       document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(30, 41, 59, 0.7)')
+      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(15, 23, 42, 0.8)')
     }
   }, [currentTheme])
 

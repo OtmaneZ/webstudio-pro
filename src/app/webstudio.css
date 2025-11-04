@@ -10,6 +10,7 @@
   --ws-bg-darker: #020617;
   --ws-bg-card: rgba(30, 41, 59, 0.5);
   --ws-bg-card-hover: rgba(30, 41, 59, 0.7);
+  --ws-bg-header: rgba(15, 23, 42, 0.8);
   
   /* Accents */
   --ws-accent-cyan: #06b6d4;
@@ -68,10 +69,10 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--ws-bg-header);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--ws-border-subtle);
-  transition: all 0.3s ease;
+  transition: var(--ws-transition-theme);
 }
 
 .ws-nav-container {
