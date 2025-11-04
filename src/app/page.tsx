@@ -22,10 +22,10 @@ const themeConfigs = {
   light: {
     primary: '#3b82f6',
     secondary: '#1e40af',
-    background: '#ffffff',
-    backgroundCard: 'rgba(241, 245, 249, 0.8)',
+    background: '#f8fafc',
+    backgroundCard: 'rgba(226, 232, 240, 0.6)',
     text: '#0f172a',
-    textSecondary: '#475569',
+    textSecondary: '#334155',
   },
   corporate: {
     primary: '#f97316',
@@ -62,9 +62,23 @@ export default function Home() {
     document.documentElement.style.setProperty('--ws-accent-cyan', theme.primary)
     document.documentElement.style.setProperty('--ws-accent-purple', theme.secondary)
     document.documentElement.style.setProperty('--ws-bg-darker', theme.background)
+    document.documentElement.style.setProperty('--ws-bg-dark', theme.background)
     document.documentElement.style.setProperty('--ws-bg-card', theme.backgroundCard)
     document.documentElement.style.setProperty('--ws-text-primary', theme.text)
     document.documentElement.style.setProperty('--ws-text-secondary', theme.textSecondary)
+    document.documentElement.style.setProperty('--ws-text-muted', theme.textSecondary)
+    
+    // Mettre à jour le background du body
+    document.body.style.background = theme.background
+    
+    // Mettre à jour les bordures pour le thème clair
+    if (currentTheme === 'light') {
+      document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.3)')
+      document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(226, 232, 240, 0.9)')
+    } else {
+      document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.1)')
+      document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(30, 41, 59, 0.7)')
+    }
   }, [currentTheme])
 
   return (
