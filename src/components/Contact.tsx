@@ -37,14 +37,14 @@ export default function Contact() {
             <h3 style={{
               fontSize: '1.5rem',
               fontWeight: '700',
-              color: '#ffffff',
+              color: 'var(--ws-text-primary)',
               marginBottom: '1rem'
             }}>
               Discutons de votre projet
             </h3>
             
             <p style={{
-              color: '#cbd5e1',
+              color: 'var(--ws-text-secondary)',
               fontSize: '1rem',
               marginBottom: '2rem',
               lineHeight: '1.6'
@@ -70,7 +70,7 @@ export default function Contact() {
               gap: '2rem',
               justifyContent: 'center',
               fontSize: '0.875rem',
-              color: '#94a3b8'
+              color: 'var(--ws-text-muted)'
             }}>
               <span>⚡ Réponse sous 24h</span>
               <span>🎯 Devis gratuit</span>

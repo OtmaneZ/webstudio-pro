@@ -58,7 +58,7 @@ export default function Process() {
                 fontWeight: '700',
                 fontSize: '1.125rem',
                 marginBottom: '1rem',
-                color: 'white'
+                color: '#ffffff'
               }}>
                 {step.number}
               </div>

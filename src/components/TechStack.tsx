@@ -75,12 +75,12 @@ export default function TechStack() {
         }}>
           <p style={{
             fontSize: '1.05rem',
-            color: '#cbd5e1',
+            color: 'var(--ws-text-secondary)',
             lineHeight: '1.7',
             maxWidth: '650px',
             margin: '0 auto'
           }}>
-            <strong style={{ color: '#e0e7ff' }}>Mais avant les outils, je commence toujours par comprendre</strong><br />
+            <strong style={{ color: 'var(--ws-text-primary)' }}>Mais avant les outils, je commence toujours par comprendre</strong><br />
             le besoin, le contexte, et la logique métier.
           </p>
         </div>
