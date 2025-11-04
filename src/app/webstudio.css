@@ -78,6 +78,29 @@
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  /* Fix spécifique pour iOS PWA standalone */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Fix additionnel pour iOS PWA */
+@supports (-webkit-touch-callout: none) {
+  .ws-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  
+  @media (display-mode: standalone) {
+    .ws-header {
+      position: fixed;
+      top: env(safe-area-inset-top, 0);
+    }
+    
+    body {
+      padding-top: env(safe-area-inset-top, 0);
+    }
+  }
 }
 
 .ws-nav-container {
