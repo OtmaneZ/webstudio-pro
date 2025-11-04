@@ -279,7 +279,7 @@
 
 /* === HERO SECTION === */
 .ws-hero {
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
