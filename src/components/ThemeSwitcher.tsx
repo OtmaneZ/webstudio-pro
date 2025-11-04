@@ -101,24 +101,25 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
             bottom: 0,
             background: 'rgba(0, 0, 0, 0.8)',
             backdropFilter: 'blur(8px)',
-            zIndex: 1000,
+            zIndex: 9999,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '2rem',
-            animation: 'fadeIn 0.3s ease-out'
+            animation: 'fadeIn 0.3s ease-out',
+            overflowY: 'auto'
           }}
           onClick={() => setIsOpen(false)}
         >
           <div
             style={{
+              position: 'relative',
               background: '#1e293b',
               borderRadius: '20px',
               padding: '3rem',
               maxWidth: '900px',
               width: '100%',
-              maxHeight: '90vh',
-              overflowY: 'auto',
+              margin: 'auto',
               border: '1px solid rgba(148, 163, 184, 0.2)',
               animation: 'slideUp 0.3s ease-out'
             }}
