@@ -39,7 +39,7 @@ export default function Process() {
             Comment ça marche ?
           </h2>
           <p className="ws-section-subtitle">
-            De l'idée au déploiement : 5-10 jours.<br />
+            De l'idée au déploiement : 3 à 7j.<br />
             Simple, transparent, efficace.
           </p>
         </div>

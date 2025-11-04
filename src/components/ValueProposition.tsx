@@ -20,7 +20,7 @@ export default function ValueProposition() {
   ]
 
   return (
-    <section id="value" className="ws-section" style={{ paddingTop: '6rem' }}>
+    <section id="value" className="ws-section" style={{ paddingTop: '8rem' }}>
       <div className="ws-container">
         <div className="ws-section-header">
           <div className="ws-section-badge">
