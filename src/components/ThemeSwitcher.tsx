@@ -103,9 +103,9 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
             backdropFilter: 'blur(8px)',
             zIndex: 9999,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            padding: '2rem',
+            padding: '2rem 1rem',
             animation: 'fadeIn 0.3s ease-out',
             overflowY: 'auto'
           }}
@@ -116,19 +116,20 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
               position: 'relative',
               background: '#1e293b',
               borderRadius: '20px',
-              padding: '3rem',
+              padding: '2rem',
               maxWidth: '900px',
               width: '100%',
-              margin: 'auto',
+              marginTop: '2rem',
+              marginBottom: '2rem',
               border: '1px solid rgba(148, 163, 184, 0.2)',
               animation: 'slideUp 0.3s ease-out'
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header Modal */}
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{
-                fontSize: '2rem',
+                fontSize: '1.75rem',
                 fontWeight: '700',
                 color: '#fff',
                 marginBottom: '0.5rem'
@@ -137,7 +138,7 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
               </h2>
               <p style={{
                 color: '#cbd5e1',
-                fontSize: '1rem'
+                fontSize: '0.95rem'
               }}>
                 Votre site peut refléter parfaitement votre identité. Testez ces variations en temps réel.
               </p>
@@ -146,9 +147,9 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
             {/* Grid de thèmes */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '2rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1rem',
+              marginBottom: '1.5rem'
             }}>
               {themes.map((theme) => (
                 <button
@@ -165,7 +166,7 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
                       ? '2px solid #06b6d4'
                       : '1px solid rgba(148, 163, 184, 0.2)',
                     borderRadius: '12px',
-                    padding: '1.5rem',
+                    padding: '1.25rem',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     textAlign: 'left'
