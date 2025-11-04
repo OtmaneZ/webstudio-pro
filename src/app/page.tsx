@@ -6,6 +6,7 @@ import ValueProposition from '@/components/ValueProposition'
 import Process from '@/components/Process'
 import UseCases from '@/components/UseCases'
 import TechStack from '@/components/TechStack'
+import Features from '@/components/Features'
 import Contact from '@/components/Contact'
 import ThemeSwitcher, { Theme } from '@/components/ThemeSwitcher'
 
@@ -94,7 +95,7 @@ export default function Home() {
           <nav className="ws-nav-menu">
             <a href="#value" className="ws-nav-link">Services</a>
             <a href="#process" className="ws-nav-link">Process</a>
-            <a href="#tech" className="ws-nav-link">Technologies</a>
+            <a href="#features" className="ws-nav-link">Fonctionnalités</a>
             <a href="#contact" className="ws-nav-link">Contact</a>
             <ThemeSwitcher currentTheme={currentTheme} onThemeChange={setCurrentTheme} />
           </nav>
@@ -107,6 +108,7 @@ export default function Home() {
       <Process />
       <UseCases />
       <TechStack />
+      <Features />
       <Contact />
 
       {/* Footer */}
