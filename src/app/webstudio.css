@@ -79,6 +79,8 @@
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  /* Padding uniquement en mode PWA pour respecter la safe-area */
+  padding-top: env(safe-area-inset-top, 0);
 }
 
 .ws-nav-container {
@@ -303,7 +305,8 @@
   justify-content: center;
   text-align: center;
   position: relative;
-  padding-top: 5rem;
+  /* Padding de base + compensation pour le safe-area du header en PWA */
+  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
 }
 
 .ws-hero-title {
