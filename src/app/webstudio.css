@@ -27,6 +27,9 @@
   --ws-gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
   --ws-gradient-accent: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
   
+  /* Transitions pour changements de thème */
+  --ws-transition-theme: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
   /* Bordures */
   --ws-border-subtle: rgba(148, 163, 184, 0.2);
   --ws-border-accent: rgba(6, 182, 212, 0.3);
@@ -48,6 +51,7 @@
   color: var(--ws-text-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: var(--ws-transition-theme);
 }
 
 /* === CONTAINER === */
@@ -341,6 +345,17 @@
 
 /* === ANIMATIONS === */
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(20px);
