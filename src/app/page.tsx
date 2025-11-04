@@ -56,6 +56,7 @@ const themeConfigs = {
 
 export default function Home() {
   const [currentTheme, setCurrentTheme] = useState<Theme>('default')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Appliquer le thème au body
   useEffect(() => {
@@ -76,11 +77,11 @@ export default function Home() {
     if (currentTheme === 'light') {
       document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.3)')
       document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(226, 232, 240, 0.9)')
-      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(248, 250, 252, 0.95)')
+      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(248, 250, 252, 0.98)')
     } else {
       document.documentElement.style.setProperty('--ws-border-subtle', 'rgba(148, 163, 184, 0.1)')
       document.documentElement.style.setProperty('--ws-bg-card-hover', 'rgba(30, 41, 59, 0.7)')
-      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(15, 23, 42, 0.8)')
+      document.documentElement.style.setProperty('--ws-bg-header', 'rgba(15, 23, 42, 0.95)')
     }
   }, [currentTheme])
 
@@ -92,11 +93,21 @@ export default function Home() {
           <a href="/" className="ws-brand">
             WebStudio Pro
           </a>
-          <nav className="ws-nav-menu">
-            <a href="#value" className="ws-nav-link">Services</a>
-            <a href="#process" className="ws-nav-link">Process</a>
-            <a href="#features" className="ws-nav-link">Fonctionnalités</a>
-            <a href="#contact" className="ws-nav-link">Contact</a>
+          
+          {/* Bouton hamburger mobile */}
+          <button 
+            className="ws-mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+          
+          <nav className={`ws-nav-menu ${mobileMenuOpen ? 'ws-nav-open' : ''}`}>
+            <a href="#value" className="ws-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a href="#process" className="ws-nav-link" onClick={() => setMobileMenuOpen(false)}>Process</a>
+            <a href="#features" className="ws-nav-link" onClick={() => setMobileMenuOpen(false)}>Fonctionnalités</a>
+            <a href="#contact" className="ws-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a>
             <ThemeSwitcher currentTheme={currentTheme} onThemeChange={setCurrentTheme} />
           </nav>
         </div>

@@ -70,9 +70,13 @@
   right: 0;
   z-index: 50;
   background: var(--ws-bg-header);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--ws-border-subtle);
   transition: var(--ws-transition-theme);
+  /* Fix pour Safari iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .ws-nav-container {
@@ -102,6 +106,18 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+}
+
+/* Bouton hamburger mobile */
+.ws-mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--ws-text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 100;
 }
 
 .ws-nav-link {
@@ -394,8 +410,33 @@
     font-size: 2rem;
   }
   
+  .ws-mobile-menu-toggle {
+    display: block;
+  }
+  
   .ws-nav-menu {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--ws-bg-dark);
+    flex-direction: column;
+    gap: 0;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+  
+  .ws-nav-menu.ws-nav-open {
+    right: 0;
+  }
+  
+  .ws-nav-link {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ws-border-subtle);
+    width: 100%;
   }
   
   .ws-grid-2,
