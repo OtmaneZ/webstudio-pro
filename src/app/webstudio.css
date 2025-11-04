@@ -1,0 +1,413 @@
+/* ============================================
+   WEBSTUDIO PRO - DESIGN SYSTEM
+   Inspiré de FinSight - Identité ZineInsight
+   ============================================ */
+
+/* === VARIABLES CSS === */
+:root {
+  /* Couleurs principales */
+  --ws-bg-dark: #0f172a;
+  --ws-bg-darker: #020617;
+  --ws-bg-card: rgba(30, 41, 59, 0.5);
+  --ws-bg-card-hover: rgba(30, 41, 59, 0.7);
+  
+  /* Accents */
+  --ws-accent-cyan: #06b6d4;
+  --ws-accent-turquoise: #14b8a6;
+  --ws-accent-purple: #8b5cf6;
+  --ws-accent-blue: #3b82f6;
+  
+  /* Textes */
+  --ws-text-primary: #ffffff;
+  --ws-text-secondary: #cbd5e1;
+  --ws-text-muted: #94a3b8;
+  
+  /* Dégradés */
+  --ws-gradient-hero: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  --ws-gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  --ws-gradient-accent: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  
+  /* Bordures */
+  --ws-border-subtle: rgba(148, 163, 184, 0.2);
+  --ws-border-accent: rgba(6, 182, 212, 0.3);
+  
+  /* Ombres */
+  --ws-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --ws-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --ws-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --ws-shadow-glow: 0 0 20px rgba(6, 182, 212, 0.3);
+  
+  /* Spacing */
+  --ws-section-padding: 5rem 1rem;
+  --ws-container-max: 1200px;
+}
+
+/* === BODY & BASE === */
+.ws-body {
+  background: var(--ws-bg-darker);
+  color: var(--ws-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === CONTAINER === */
+.ws-container {
+  max-width: var(--ws-container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === HEADER & NAV === */
+.ws-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ws-border-subtle);
+  transition: all 0.3s ease;
+}
+
+.ws-nav-container {
+  max-width: var(--ws-container-max);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ws-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--ws-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.ws-brand:hover {
+  transform: scale(1.05);
+}
+
+.ws-nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ws-nav-link {
+  color: var(--ws-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.ws-nav-link:hover {
+  color: var(--ws-accent-cyan);
+}
+
+.ws-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--ws-accent-cyan);
+  transition: width 0.3s ease;
+}
+
+.ws-nav-link:hover::after {
+  width: 100%;
+}
+
+/* === SECTIONS === */
+.ws-section {
+  padding: var(--ws-section-padding);
+  position: relative;
+}
+
+.ws-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.ws-section-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid var(--ws-border-accent);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ws-accent-cyan);
+  margin-bottom: 1.5rem;
+}
+
+.ws-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--ws-text-primary);
+}
+
+.ws-section-title .gradient {
+  background: var(--ws-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ws-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--ws-text-secondary);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* === CARDS === */
+.ws-card {
+  background: var(--ws-bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--ws-border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.ws-card:hover {
+  background: var(--ws-bg-card-hover);
+  border-color: var(--ws-border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--ws-shadow-md);
+}
+
+.ws-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ws-gradient-accent);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ws-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ws-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.ws-card-text {
+  color: var(--ws-text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* === GRID LAYOUTS === */
+.ws-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.ws-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.ws-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === BUTTONS === */
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.ws-btn-primary {
+  background: var(--ws-gradient-hero);
+  color: white;
+  box-shadow: var(--ws-shadow-sm);
+}
+
+.ws-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ws-shadow-glow);
+}
+
+.ws-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--ws-text-primary);
+  border: 2px solid var(--ws-border-accent);
+}
+
+.ws-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--ws-accent-cyan);
+}
+
+/* === HERO SECTION === */
+.ws-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding-top: 5rem;
+}
+
+.ws-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--ws-text-primary);
+}
+
+.ws-hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--ws-text-secondary);
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0 auto 2.5rem;
+}
+
+.ws-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* === FOOTER === */
+.ws-footer {
+  background: rgba(15, 23, 42, 0.5);
+  border-top: 1px solid var(--ws-border-subtle);
+  padding: 3rem 1.5rem 2rem;
+  margin-top: 5rem;
+}
+
+.ws-footer-content {
+  max-width: var(--ws-container-max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ws-footer-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ws-accent-cyan);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.ws-footer-text {
+  color: var(--ws-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.ws-footer-highlight {
+  color: var(--ws-accent-cyan);
+  font-weight: 600;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ws-animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.ws-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .ws-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .ws-section-title {
+    font-size: 2rem;
+  }
+  
+  .ws-nav-menu {
+    display: none;
+  }
+  
+  .ws-grid-2,
+  .ws-grid-3,
+  .ws-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .ws-hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* === UTILITIES === */
+.ws-text-gradient {
+  background: var(--ws-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ws-glassmorphism {
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.ws-glow {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
