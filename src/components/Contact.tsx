@@ -50,22 +50,43 @@ export default function Contact() {
               lineHeight: '1.6'
             }}>
               Un site vitrine, une web app, un dashboard ?<br />
-              Écrivez-moi et obtenez un devis personnalisé sous 48h.
+              Choisissez votre mode de contact préféré.
             </p>
 
-            <a 
-              href="mailto:otmane@zineinsight.com?subject=Demande de devis - Site web"
-              className="ws-btn ws-btn-primary"
-              style={{
-                fontSize: '1.125rem',
-                padding: '1.25rem 2.5rem'
-              }}
-            >
-              → Me contacter
-            </a>
+            {/* Boutons Email et Calendly */}
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              marginBottom: '2rem'
+            }}>
+              <a 
+                href="mailto:otmane@zineinsight.com?subject=Demande de devis - Site web"
+                className="ws-btn ws-btn-primary"
+                style={{
+                  fontSize: '1.05rem',
+                  padding: '1rem 2rem'
+                }}
+              >
+                📧 M'envoyer un email
+              </a>
+
+              <a 
+                href="https://calendly.com/zineinsight"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ws-btn ws-btn-secondary"
+                style={{
+                  fontSize: '1.05rem',
+                  padding: '1rem 2rem'
+                }}
+              >
+                📅 Réserver un créneau 30min
+              </a>
+            </div>
 
             <div style={{
-              marginTop: '2rem',
               display: 'flex',
               gap: '2rem',
               justifyContent: 'center',
