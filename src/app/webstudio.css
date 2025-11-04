@@ -306,7 +306,7 @@
   text-align: center;
   position: relative;
   /* Padding de base + compensation pour le safe-area du header en PWA */
-  padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+  padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));
 }
 
 .ws-hero-title {
