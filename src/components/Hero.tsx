@@ -1,5 +1,7 @@
 'use client'
 
+import ShareButtons from './ShareButtons'
+
 export default function Hero() {
   return (
     <section className="ws-hero ws-animate-fade-in">
@@ -26,6 +28,9 @@ export default function Hero() {
             Discutons de votre projet
           </a>
         </div>
+
+        {/* Boutons de partage */}
+        <ShareButtons />
       </div>
     </section>
   )
