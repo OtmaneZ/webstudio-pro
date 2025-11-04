@@ -74,33 +74,11 @@
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--ws-border-subtle);
   transition: var(--ws-transition-theme);
-  /* Fix pour Safari iOS - sans casser le fixed */
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /* Fix spécifique pour iOS PWA standalone */
+  /* Fix pour Safari iOS PWA */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-}
-
-/* Fix additionnel pour iOS PWA */
-@supports (-webkit-touch-callout: none) {
-  .ws-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-  
-  @media (display-mode: standalone) {
-    .ws-header {
-      position: fixed;
-      top: env(safe-area-inset-top, 0);
-    }
-    
-    body {
-      padding-top: env(safe-area-inset-top, 0);
-    }
-  }
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .ws-nav-container {
