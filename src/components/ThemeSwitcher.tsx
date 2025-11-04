@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 export type Theme = 'default' | 'light' | 'corporate' | 'luxury' | 'startup'
 
@@ -75,57 +76,47 @@ interface ThemeSwitcherProps {
 
 export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-  return (
-    <>
-      {/* Bouton dans le header */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="ws-btn ws-btn-secondary"
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const modalContent = isOpen ? (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: 'blur(8px)',
+        zIndex: 99999,
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        padding: '2rem 1rem',
+        animation: 'fadeIn 0.3s ease-out',
+        overflowY: 'auto'
+      }}
+      onClick={() => setIsOpen(false)}
+    >
+      <div
         style={{
-          fontSize: '0.9rem',
-          padding: '0.75rem 1.5rem'
+          position: 'relative',
+          background: '#1e293b',
+          borderRadius: '20px',
+          padding: '2rem',
+          maxWidth: '900px',
+          width: '100%',
+          marginTop: '2rem',
+          marginBottom: '2rem',
+          border: '1px solid rgba(148, 163, 184, 0.2)',
+          animation: 'slideUp 0.3s ease-out'
         }}
+        onClick={(e) => e.stopPropagation()}
       >
-        🎨 Voir d'autres styles
-      </button>
-
-      {/* Modal */}
-      {isOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.8)',
-            backdropFilter: 'blur(8px)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            padding: '2rem 1rem',
-            animation: 'fadeIn 0.3s ease-out',
-            overflowY: 'auto'
-          }}
-          onClick={() => setIsOpen(false)}
-        >
-          <div
-            style={{
-              position: 'relative',
-              background: '#1e293b',
-              borderRadius: '20px',
-              padding: '2rem',
-              maxWidth: '900px',
-              width: '100%',
-              marginTop: '2rem',
-              marginBottom: '2rem',
-              border: '1px solid rgba(148, 163, 184, 0.2)',
-              animation: 'slideUp 0.3s ease-out'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
             {/* Header Modal */}
             <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{
@@ -259,8 +250,24 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
             </div>
           </div>
         </div>
-      )}
+  ) : null
 
+  return (
+    <>
+      {/* Bouton dans le header */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="ws-btn ws-btn-secondary"
+        style={{
+          fontSize: '0.9rem',
+          padding: '0.75rem 1.5rem'
+        }}
+      >
+        🎨 Voir d'autres styles
+      </button>
+
+      {/* Modal rendu avec Portal */}
+      {mounted && typeof window !== 'undefined' && modalContent && createPortal(modalContent, document.body)}
     </>
   )
 }
